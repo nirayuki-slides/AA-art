@@ -33,9 +33,14 @@ Node.js 20.19+ または 22.12+ が必要（Vite 8 の要件）。
 
 ## GitHub Pages へのデプロイ
 
-`main` ブランチへ push すると `.github/workflows/deploy.yml` が自動でビルドし、GitHub Pages へ公開する。ワークフローの `configure-pages` で `enablement: true` を指定しているため、Pages は初回実行時に自動で有効化される（リポジトリ側の手動設定は不要）。public リポジトリであることが前提（GitHub Free で private リポジトリの Pages は使えない）。
+`main` ブランチへ push すると `.github/workflows/deploy.yml` が自動でビルドし、GitHub Pages へ公開する。
 
-`vite.config.ts` の `base: './'`（相対パス）により、`/AA-art/` のサブパス配信でもローカルでもそのまま動作する。
+初回のみリポジトリ側で1回だけ設定が必要:
+
+1. リポジトリの **Settings → Pages** を開く
+2. **Build and deployment → Source** を **GitHub Actions** に設定
+
+以降は push のたびに自動デプロイされる。public リポジトリであることが前提（GitHub Free で private リポジトリの Pages は使えない）。`vite.config.ts` の `base: './'`（相対パス）により、`/AA-art/` のサブパス配信でもローカルでもそのまま動作する。
 
 ## ライセンス
 
